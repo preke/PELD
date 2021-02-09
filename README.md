@@ -7,7 +7,7 @@ The dialogues in PELD are merged from the emotional dialogues in [MELD and Emory
 
 The personality traits in PELD are adopted from the personality annotations in 711 different dialogues in  [FriendsPersona](https://github.com/emorynlp/personality-detection). Refer to the annotations, a role may exhibit different aspects of its personality in different dialogues. 
 
-We only keep the personality traits of the six main roles for confidence as their annotations are most frequent. For each of the main roles, we average their annotated personality traits in all the dialogues by ![](http://latex.codecogs.com/gif.latex?\P_n = \\frac{1}{K}\\\sum_{i=1}^K{P_i}) for simplification, where ***K*** is the number of annotations.
+We only keep the personality traits of the six main roles for confidence as their annotations are most frequent. For each of the main roles, we average their annotated personality traits in all the dialogues by $P_n = \\frac{1}{K}\\sum_{i=1}^K{P_i}$ for simplification, where $K$ is the number of annotations.
 
 |Roles|Personality Traits (O,C,E,A,N)|
 |---|---|
