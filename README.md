@@ -63,6 +63,25 @@ Construction code:
 
 
 
-## Multi-turn Dyadic Dialogs
+## Citation
 
-Under Construction...
+[Automatically Select Emotion for Response via Personality-affected Emotion Transition](https://aclanthology.org/2021.findings-acl.444) Zhiyuan Wen | Jiannong Cao | Ruosong Yang | Shuaiqi Liu | Jiaxing Shen
+
+```bib
+@inproceedings{wen-etal-2021-automatically,
+    title = "Automatically Select Emotion for Response via Personality-affected Emotion Transition",
+    author = "Wen, Zhiyuan  and
+      Cao, Jiannong  and
+      Yang, Ruosong  and
+      Liu, Shuaiqi  and
+      Shen, Jiaxing",
+    booktitle = "Findings of the Association for Computational Linguistics: ACL-IJCNLP 2021",
+    month = aug,
+    year = "2021",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2021.findings-acl.444",
+    doi = "10.18653/v1/2021.findings-acl.444",
+    pages = "5010--5020",
+}
+```
