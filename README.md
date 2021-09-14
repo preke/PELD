@@ -65,7 +65,9 @@ Construction code:
 
 ## Citation
 
-[Automatically Select Emotion for Response via Personality-affected Emotion Transition](https://aclanthology.org/2021.findings-acl.444) Zhiyuan Wen | Jiannong Cao | Ruosong Yang | Shuaiqi Liu | Jiaxing Shen
+[Automatically Select Emotion for Response via Personality-affected Emotion Transition](https://aclanthology.org/2021.findings-acl.444) 
+
+Zhiyuan Wen | Jiannong Cao | Ruosong Yang | Shuaiqi Liu | Jiaxing Shen
 
 ```bib
 @inproceedings{wen-etal-2021-automatically,
