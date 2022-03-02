@@ -96,14 +96,14 @@ class Emo_Generation(RobertaPreTrainedModel):
         # print(valence.unsqueeze(-1).shape)
         return torch.cat((valence.unsqueeze(-1), arousal.unsqueeze(-1), dominance.unsqueeze(-1)), 1)
     
-    def forward(self, input_ids_1=None, input_ids_2=None, input_ids_3=None, 
+    def forward(self, input_ids_1=None, input_ids_2=None, input_ids_3=None, attn_mask_1, attn_mask_2, attn_mask_3,
                       personality=None, init_emo=None):
 
         ## utterance robert embedding
-        roberta_outputs_1 = self.roberta(input_ids_1)
+        roberta_outputs_1 = self.roberta(input_ids_1, attention_mask = attn_mask_1)
         roberta_hidden_1 = roberta_outputs_1[0]
 
-        roberta_outputs_2 = self.roberta(input_ids_2)
+        roberta_outputs_2 = self.roberta(input_ids_2,  attention_mask = attn_mask_2)
         roberta_hidden_2 = roberta_outputs_2[0]
 
         roberta_hidden = torch.cat((roberta_hidden_1, roberta_hidden_2), 2)

@@ -43,8 +43,8 @@ def train_model(model, args, train_dataloader, valid_dataloader, test_dataloader
             
             # Add batch to GPU
             batch = tuple(t.cuda(args.device) for t in batch)
-            b_input_ids_1, b_input_ids_2, b_input_ids_3, b_personality, b_init_emo, b_response_emo, b_labels = batch
-            logits = model(b_input_ids_1, b_input_ids_2, b_input_ids_3, personality=b_personality, init_emo=b_init_emo)
+            b_input_ids_1, b_input_ids_2, b_input_ids_3, b_attn_mask_1, b_attn_mask_2, b_attn_mask_3, b_personality, b_init_emo, b_response_emo, b_labels = batch
+            logits = model(b_input_ids_1, b_input_ids_2, b_input_ids_3, b_attn_mask_1, b_attn_mask_2, b_attn_mask_3, personality=b_personality, init_emo=b_init_emo)
             
             if args.loss_function == 'MSE':
                 loss_fct     = nn.MSELoss()
@@ -185,10 +185,10 @@ def eval_model(model, valid_dataloader, args, valid_logs):
     
     for batch in valid_dataloader:
         batch = tuple(t.cuda(args.device) for t in batch)
-        b_input_ids_1, b_input_ids_2, b_input_ids_3, b_personality, b_init_emo, b_response_emo, b_labels = batch
+        b_input_ids_1, b_input_ids_2, b_input_ids_3, b_attn_mask_1, b_attn_mask_2, b_attn_mask_3, b_personality, b_init_emo, b_response_emo, b_labels = batch
         with torch.no_grad():
           # Forward pass, calculate logit predictions
-          logits = model(b_input_ids_1, b_input_ids_2, b_input_ids_3, personality=b_personality, init_emo=b_init_emo)
+          logits = model(b_input_ids_1, b_input_ids_2, b_input_ids_3, b_attn_mask_1, b_attn_mask_2, b_attn_mask_3, personality=b_personality, init_emo=b_init_emo)
         
         # if MSE:
         # loss_fct = nn.MSELoss()
@@ -235,10 +235,10 @@ def test_model(model, test_dataloader, args, test_logs):
     
     for batch in test_dataloader:
         batch = tuple(t.cuda(args.device) for t in batch)
-        b_input_ids_1, b_input_ids_2, b_input_ids_3, b_personality, b_init_emo, b_response_emo, b_labels = batch
+        b_input_ids_1, b_input_ids_2, b_input_ids_3, b_attn_mask_1, b_attn_mask_2, b_attn_mask_3, b_personality, b_init_emo, b_response_emo, b_labels = batch
         with torch.no_grad():
           # Forward pass, calculate logit predictions
-          logits = model(b_input_ids_1, b_input_ids_2, b_input_ids_3, personality=b_personality, init_emo=b_init_emo)
+          logits = model(b_input_ids_1, b_input_ids_2, b_input_ids_3, b_attn_mask_1, b_attn_mask_2, b_attn_mask_3, personality=b_personality, init_emo=b_init_emo)
         
         # if MSE:
         # loss_fct = nn.MSELoss()
