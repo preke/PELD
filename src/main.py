@@ -18,15 +18,16 @@ args = parser.parse_args()
 
 args.mode         = 3
 args.Senti_or_Emo = 'Emotion'
-args.loss_function = 'CE' # CE or MSE or Focal
-args.device       = 0
+args.loss_function= 'Focal' # CE or MSE or Focal
+args.base         = 'RoBERTa'
+args.device       = 1
 args.SEED         = 42
-args.MAX_LEN      = 64 
-args.batch_size   = 64
-args.lr           = 1e-5
+args.MAX_LEN      = 256
+args.batch_size   = 16
+args.lr           = 1e-4
 args.adam_epsilon = 1e-8
 args.epochs       = 50
-args.result_name  = args.Senti_or_Emo+'_Mode_'+str(args.mode)+'_'+args.loss_function+'_Epochs_'+str(args.epochs)+'.csv'
+args.result_name  = args.Senti_or_Emo+'_128_Mode_'+str(args.mode)+'_'+args.loss_function+'_Epochs_'+str(args.epochs)+'.csv'
 
 ## LOAD DATA
 from dataload import load_data
@@ -38,8 +39,12 @@ from model import Emo_Generation
 from transformers import RobertaConfig, RobertaModel, PreTrainedModel
 from train import train_model
 
-model = Emo_Generation.from_pretrained('roberta-base', mode=args.mode).cuda(args.device)
+if args.base == 'RoBERTa':
+        model = Emo_Generation.from_pretrained('roberta-base', mode=args.mode).cuda(args.device)
+else:
+        model = Emo_Generation.from_pretrained('bert-base-uncased', mode=args.mode).cuda(args.device)
 train_model(model, args, train_dataloader, valid_dataloader, test_dataloader)
+
 
 
 
