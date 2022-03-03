@@ -20,14 +20,14 @@ args.mode         = 3
 args.Senti_or_Emo = 'Emotion'
 args.loss_function= 'Focal' # CE or MSE or Focal
 args.base         = 'RoBERTa'
-args.device       = 1
+args.device       = 0
 args.SEED         = 42
 args.MAX_LEN      = 256
 args.batch_size   = 16
 args.lr           = 1e-4
 args.adam_epsilon = 1e-8
 args.epochs       = 50
-args.result_name  = args.Senti_or_Emo+'_128_Mode_'+str(args.mode)+'_'+args.loss_function+'_Epochs_'+str(args.epochs)+'.csv'
+args.result_name  = args.Senti_or_Emo+'_Mode_'+str(args.mode)+'_'+args.loss_function+'_Epochs_'+str(args.epochs)+'.csv'
 
 ## LOAD DATA
 from dataload import load_data

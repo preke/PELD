@@ -112,7 +112,7 @@ class Emo_Generation(RobertaPreTrainedModel):
         if self.mode == 1:
             logits = self.utter_classifier(roberta_hidden)
         elif self.mode == 2:
-            personality = self.personality_trans(personality.cuda(1))
+            personality = self.personality_trans(personality.cuda(0))
             logits = self.utter_classifier(roberta_hidden, personality)        
         elif self.mode == 3:
             utter_emo = self.utter_classifier(roberta_hidden) # delta of v, a, d
