@@ -11,7 +11,7 @@ import model
 
 
 # CONFIG
-DATA_PATH = '../Dyadic_PELD.tsv'
+DATA_PATH = '../data/Dyadic_PELD.tsv'
 
 parser = argparse.ArgumentParser(description='')
 args = parser.parse_args()
