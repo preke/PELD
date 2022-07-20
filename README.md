@@ -28,12 +28,12 @@ We propose two method to generate the response emotion $E_r$ as below:
 ## Emotion Transition 
 
 
-<img src="emo_transition/emo_transition_model.png" width="60%">
+<img src="emo_transition_src/emo_transition_model.png" width="60%">
 
 
 ## Mood Transition
 
-<img src="mood_transition/mood_transition_model.png" width="60%">
+<img src="mood_transition_src/mood_transition_model.png" width="60%">
 
 
 ## Citation
